@@ -50,6 +50,17 @@ void Ball::OnEvent(CollisionEvent* coll)
 	{
 		this->yvel = -yvel;
 	}
+	if (coll->type == "PlayerToBall")
+	{
+		if (this->x < 50)
+		{
+			this->yvel = yvel;
+			this->xvel = -xvel;
+			return;
+		}
+		this->yvel = -yvel;
+		this->xvel = -xvel;
+	}
 }
 
 int Ball::getRad()

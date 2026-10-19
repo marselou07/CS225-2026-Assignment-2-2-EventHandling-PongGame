@@ -3,7 +3,7 @@ Player::~Player()
 {
 }
 
-Player::Player(int startx, int starty)
+Player::Player(int startx, int starty): coll_handler(this, &Player::OnEvent)
 {
 	x = startx;
 	y = starty;
@@ -34,4 +34,9 @@ int Player::getXScale()
 int Player::getYScale()
 {
 	return yscale;
+}
+
+void Player::OnEvent(CollisionEvent* coll)
+{
+
 }

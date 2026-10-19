@@ -14,8 +14,10 @@ void Level_1_Load()
 {
     ball = new Ball(0, 0);
     player = new Player(-1 * ((int)AEGetSysWindowHeight() / 2) + 50, 0);
-    collmanager = new CollisionEventManager(ball);
+    collmanager = new CollisionEventManager(ball, player);
     collmanager->registerEventHandler(ball->getHandler());
+    collmanager->registerEventHandler(player->getHandler());
+
 }
 
 void Level_1_Init()
