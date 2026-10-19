@@ -2,15 +2,18 @@
 #include <imgui/imgui.h>
 #include "Level 1.h"
 #include "../Framework/Ball.hh"
+#include "../Framework/Player.hh"
 #include "../Components/CollisionManager.hh"
 int mode = 0;
 
 bool ShowFrameworkMenu();
-Ball* ball ;
+Ball* ball;
+Player* player;
 CollisionEventManager* collmanager;
 void Level_1_Load()
 {
     ball = new Ball(0, 0);
+    player = new Player(-1 * ((int)AEGetSysWindowHeight() / 2) + 50, 0);
     collmanager = new CollisionEventManager(ball);
     collmanager->registerEventHandler(ball->getHandler());
 }
@@ -18,6 +21,7 @@ void Level_1_Load()
 void Level_1_Init()
 {
     ball->Draw();
+    player->Draw();
 }
 
 void Level_1_Update()
@@ -33,6 +37,7 @@ void Level_1_Render()
 {
     // clear frame buffer, do not delete this code
     ball->Draw();
+    player->Draw();
     AEGfxSetClearColor(AEGfxColor(0, 0, 0));
     AEGfxClearBuffer();
 }

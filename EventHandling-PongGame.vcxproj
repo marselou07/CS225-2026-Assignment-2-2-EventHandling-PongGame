@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Components\CollisionManager.cc" />
+    <ClCompile Include="src\Components\InputManager.cc" />
     <ClCompile Include="src\Components\position_component.cc" />
     <ClCompile Include="src\Components\render_component.cc" />
     <ClCompile Include="src\Framework\Ball.cc" />
@@ -33,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Components\CollisionManager.hh" />
+    <ClInclude Include="src\Components\InputManager.hh" />
     <ClInclude Include="src\Components\position_component.hh" />
     <ClInclude Include="src\Components\render_component.hh" />
     <ClInclude Include="src\Framework\Ball.hh" />

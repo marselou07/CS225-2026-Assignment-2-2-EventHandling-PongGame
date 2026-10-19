@@ -10,19 +10,19 @@ void CollisionEventManager::update()
 		this->notifyEvent(event);
 	}
 	 if (ball->Getx() - ball->getRad()  <= -1* halfx)
-	{
+	 {
 		CollisionEvent* event = new CollisionEvent("LeftWall");
 		this->notifyEvent(event);
-	}
+	 }
 	 if (ball->Gety() + ball->getRad()  >= halfy)
-	{
+	 {
 		CollisionEvent* event = new CollisionEvent("TopWall");
 		this->notifyEvent(event);
 
-	}
+	 }
 	 if (ball->Gety() - ball->getRad()  <= -1 * halfy)
-	{
+	 {
 		CollisionEvent* event = new CollisionEvent("DownWall");
 		this->notifyEvent(event);
-	}
+	 }
 }
