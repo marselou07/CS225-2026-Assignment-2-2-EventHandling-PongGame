@@ -2,13 +2,17 @@
 #include <imgui/imgui.h>
 #include "Level 1.h"
 #include "../Framework/Ball.hh"
+#include "../Components/CollisionManager.hh"
 int mode = 0;
 
 bool ShowFrameworkMenu();
-Ball* ball = new Ball();
+Ball* ball ;
+CollisionEventManager* collmanager;
 void Level_1_Load()
 {
-
+    ball = new Ball(0, 0);
+    collmanager = new CollisionEventManager(ball);
+    collmanager->registerEventHandler(ball->getHandler());
 }
 
 void Level_1_Init()
@@ -22,7 +26,7 @@ void Level_1_Update()
     KeyboardInput();
     bool guiActive = ShowFrameworkMenu();
     ball->Update();
-
+    collmanager->update();
 }
 
 void Level_1_Render()

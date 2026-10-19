@@ -81,5 +81,11 @@
     <ClInclude Include="src\Framework\CPU.hh">
       <Filter>Framework</Filter>
     </ClInclude>
+    <ClInclude Include="src\Framework\CollisionEvent.hh">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Framework\InputEvent.hh">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

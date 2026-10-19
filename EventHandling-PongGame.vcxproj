@@ -36,11 +36,13 @@
     <ClInclude Include="src\Components\position_component.hh" />
     <ClInclude Include="src\Components\render_component.hh" />
     <ClInclude Include="src\Framework\Ball.hh" />
+    <ClInclude Include="src\Framework\CollisionEvent.hh" />
     <ClInclude Include="src\Framework\component.hh" />
     <ClInclude Include="src\Framework\CPU.hh" />
     <ClInclude Include="src\Framework\entity.hh" />
     <ClInclude Include="src\Framework\event.hh" />
     <ClInclude Include="src\Framework\event_handlers.hh" />
+    <ClInclude Include="src\Framework\InputEvent.hh" />
     <ClInclude Include="src\Framework\Player.hh" />
     <ClInclude Include="src\Levels\Level 1.h" />
   </ItemGroup>
