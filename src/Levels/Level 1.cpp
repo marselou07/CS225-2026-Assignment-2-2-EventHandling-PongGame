@@ -1,17 +1,19 @@
 #include <AEEngine.h>
 #include <imgui/imgui.h>
 #include "Level 1.h"
-
+#include "../Framework/Ball.hh"
 int mode = 0;
 
 bool ShowFrameworkMenu();
-
+Ball* ball = new Ball();
 void Level_1_Load()
 {
+
 }
 
 void Level_1_Init()
 {
+    ball->Draw();
 }
 
 void Level_1_Update()
@@ -19,13 +21,14 @@ void Level_1_Update()
     // core keyboard shortcuts and GUI, do not delete this code!
     KeyboardInput();
     bool guiActive = ShowFrameworkMenu();
-
+    ball->Update();
 
 }
 
 void Level_1_Render()
 {
     // clear frame buffer, do not delete this code
+    ball->Draw();
     AEGfxSetClearColor(AEGfxColor(0, 0, 0));
     AEGfxClearBuffer();
 }
