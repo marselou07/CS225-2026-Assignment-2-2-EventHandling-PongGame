@@ -18,6 +18,7 @@ class Player : public Entity
 	int xvel = 0;
 	int yvel = 150;
 	EventHandler<Player, InputEvent> input_handler;
+	EventHandler<Player, CollisionEvent> coll_handler;
 	// Add version for input
 	public:
 		~Player();
@@ -29,8 +30,13 @@ class Player : public Entity
 		int getXScale();
 		int getYScale();
 		void OnEvent(InputEvent* input);
+		void OnHitEvent(CollisionEvent* coll);
 		IEventHandler* getHandler()
 		{
 			return &input_handler;
+		}
+		IEventHandler* getHandler_coll()
+		{
+			return &coll_handler;
 		}
 };

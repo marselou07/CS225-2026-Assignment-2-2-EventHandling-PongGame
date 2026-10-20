@@ -38,4 +38,9 @@ void CollisionEventManager::update()
 		 CollisionEvent* event = new CollisionEvent("TopWallPlayer");
 		 this->notifyEvent(event);
 	 }
+	 if (player->Get_y() - player->getYScale() / 2 <= -halfy)
+	 {
+		 CollisionEvent* event = new CollisionEvent("DownWallPlayer");
+		 this->notifyEvent(event);
+	 }
 }

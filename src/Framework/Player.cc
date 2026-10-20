@@ -1,10 +1,10 @@
 #include "Player.hh"
-#include <iostream>
 Player::~Player()
 {
 }
 
-Player::Player(int startx, int starty): input_handler(this, &Player::OnEvent)
+Player::Player(int startx, int starty): input_handler(this, &Player::OnEvent),
+coll_handler(this,&Player::OnHitEvent)
 {
 	x = startx;
 	y = starty;
@@ -45,7 +45,19 @@ void Player::OnEvent(InputEvent* input)
 	}
 	if (input->type == "DOWN")
 	{
-		std::cout << " DOWN  detected" << std::endl;
 		this->y -= yvel * AEGetFrameTime();
+	}
+	
+}
+
+void Player::OnHitEvent(CollisionEvent* coll)
+{
+	if (coll->type == "TopWallPlayer")
+	{
+		y = (int)AEGetSysWindowWidth() / 2 - getYScale();
+	}
+	if (coll->type == "DownWallPlayer")
+	{
+		y = -(int)AEGetSysWindowWidth() / 2 + getYScale();
 	}
 }
