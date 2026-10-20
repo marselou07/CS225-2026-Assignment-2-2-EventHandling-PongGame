@@ -3,6 +3,7 @@
 #include "../Framework/event_handlers.hh"
 #include "../Framework/entity.hh"
 #include "CollisionEvent.hh"
+#include "InputEvent.hh"
 #include <AEEngine.h>
 class Component;
 
@@ -16,7 +17,7 @@ class Player : public Entity
 
 	int xvel = 0;
 	int yvel = 150;
-	EventHandler<Player, CollisionEvent> coll_handler;
+	EventHandler<Player, InputEvent> input_handler;
 	// Add version for input
 	public:
 		~Player();
@@ -27,9 +28,9 @@ class Player : public Entity
 		int Get_y();
 		int getXScale();
 		int getYScale();
-		void OnEvent(CollisionEvent* coll);
+		void OnEvent(InputEvent* input);
 		IEventHandler* getHandler()
 		{
-			return &coll_handler;
+			return &input_handler;
 		}
 };

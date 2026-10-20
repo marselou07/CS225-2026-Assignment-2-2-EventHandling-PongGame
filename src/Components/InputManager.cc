@@ -2,8 +2,14 @@
 
 void InputEventManager::update()
 {
-	if (AEInputKeyTriggered('W'))
+	if (AEInputKeyPressed('W'))
 	{
-		
+		InputEvent* event = new InputEvent("UP");
+		this->notifyEvent(event);
+	}
+	if (AEInputKeyPressed('S'))
+	{
+		InputEvent* event = new InputEvent("DOWN");
+		this->notifyEvent(event);
 	}
 }

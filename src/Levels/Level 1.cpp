@@ -4,20 +4,23 @@
 #include "../Framework/Ball.hh"
 #include "../Framework/Player.hh"
 #include "../Components/CollisionManager.hh"
+#include "../Components/InputManager.hh"
+
 int mode = 0;
 
 bool ShowFrameworkMenu();
 Ball* ball;
 Player* player;
 CollisionEventManager* collmanager;
+InputEventManager* inputmanager;
 void Level_1_Load()
 {
     ball = new Ball(0, 0);
     player = new Player(-1 * ((int)AEGetSysWindowHeight() / 2) + 50, 0);
     collmanager = new CollisionEventManager(ball, player);
     collmanager->registerEventHandler(ball->getHandler());
-    collmanager->registerEventHandler(player->getHandler());
-
+    inputmanager = new InputEventManager(player);
+    inputmanager->registerEventHandler(player->getHandler());
 }
 
 void Level_1_Init()
@@ -32,7 +35,9 @@ void Level_1_Update()
     KeyboardInput();
     bool guiActive = ShowFrameworkMenu();
     ball->Update();
+    player->Update();
     collmanager->update();
+    inputmanager->update();
 }
 
 void Level_1_Render()

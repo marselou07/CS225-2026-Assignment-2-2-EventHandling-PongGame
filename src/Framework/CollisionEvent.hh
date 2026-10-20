@@ -1,6 +1,6 @@
 #pragma once
 #include "event.hh"
-#include "string.h"
+#include <string>
 class CollisionEvent : public Event
 {
 	public:
