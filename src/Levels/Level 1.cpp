@@ -11,15 +11,18 @@ int mode = 0;
 bool ShowFrameworkMenu();
 Ball* ball;
 Player* player;
+CPU* cpu;
 CollisionEventManager* collmanager;
 InputEventManager* inputmanager;
 void Level_1_Load()
 {
     ball = new Ball(0, 0);
     player = new Player(-1 * ((int)AEGetSysWindowHeight() / 2) + 50, 0);
-    collmanager = new CollisionEventManager(ball, player);
+    cpu = new CPU(((int)AEGetSysWindowHeight() / 2) + 50, 0, ball);
+    collmanager = new CollisionEventManager(ball, player, cpu);
     collmanager->registerEventHandler(ball->getHandler());
     collmanager->registerEventHandler(player->getHandler_coll());
+    collmanager->registerEventHandler(cpu->getHandler_coll());
     inputmanager = new InputEventManager(player);
     inputmanager->registerEventHandler(player->getHandler());
 }
@@ -28,6 +31,7 @@ void Level_1_Init()
 {
     ball->Draw();
     player->Draw();
+    cpu->Draw();
 }
 
 void Level_1_Update()
@@ -37,6 +41,7 @@ void Level_1_Update()
     bool guiActive = ShowFrameworkMenu();
     ball->Update();
     player->Update();
+    cpu->Update();
     collmanager->update();
     inputmanager->update();
 }
@@ -46,6 +51,7 @@ void Level_1_Render()
     // clear frame buffer, do not delete this code
     ball->Draw();
     player->Draw();
+    cpu->Draw();
     AEGfxSetClearColor(AEGfxColor(0, 0, 0));
     AEGfxClearBuffer();
 }

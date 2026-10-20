@@ -1,4 +1,5 @@
 #include "Player.hh"
+#include "CPU.hh"
 Player::~Player()
 {
 }

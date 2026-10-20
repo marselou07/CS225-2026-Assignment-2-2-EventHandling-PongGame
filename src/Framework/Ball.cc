@@ -61,6 +61,17 @@ void Ball::OnEvent(CollisionEvent* coll)
 		this->yvel = -yvel;
 		this->xvel = -xvel;
 	}
+	if (coll->type == "CPUToBall")
+	{
+		if (this->x > -50)
+		{
+			this->yvel = yvel;
+			this->xvel = -xvel;
+			return;
+		}
+		this->yvel = -yvel;
+		this->xvel = -xvel;
+	}
 }
 
 int Ball::getRad()

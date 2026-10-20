@@ -33,6 +33,12 @@ void CollisionEventManager::update()
 		 CollisionEvent* event = new CollisionEvent("PlayerToBall");
 		 this->notifyEvent(event);
 	 }
+	 if (AEStaticRectToStaticCircle(playerpos, cpu->getScaleX(), cpu->getScaleY()
+		 , ballpos, (float)ball->getRad()))
+	 {
+		 CollisionEvent* event = new CollisionEvent("CPUToBall");
+		 this->notifyEvent(event);
+	 }
 	 if (player->Get_y() + player->getYScale()/2>= halfy)
 	 {
 		 CollisionEvent* event = new CollisionEvent("TopWallPlayer");
@@ -43,4 +49,5 @@ void CollisionEventManager::update()
 		 CollisionEvent* event = new CollisionEvent("DownWallPlayer");
 		 this->notifyEvent(event);
 	 }
+
 }
