@@ -5,5 +5,9 @@
 #include "../Framework/CollisionEvent.hh"
 class InputEventManager : public EventManager
 {
-	
+	Player* player;
+	public:
+		InputEventManager(Player* p) : player(p)
+		{}
+		void update() override;
 };
