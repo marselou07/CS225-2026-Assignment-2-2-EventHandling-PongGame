@@ -18,7 +18,7 @@ void Level_1_Load()
 {
     ball = new Ball(0, 0);
     player = new Player(-1 * ((int)AEGetSysWindowHeight() / 2) + 50, 0);
-    cpu = new CPU(((int)AEGetSysWindowHeight() / 2) + 50, 0, ball);
+    cpu = new CPU(((int)AEGetSysWindowHeight() / 2) - 50, 0, ball);
     collmanager = new CollisionEventManager(ball, player, cpu);
     collmanager->registerEventHandler(ball->getHandler());
     collmanager->registerEventHandler(player->getHandler_coll());
@@ -58,11 +58,23 @@ void Level_1_Render()
 
 void Level_1_Free()
 {
+    delete collmanager;
+    collmanager = nullptr;
+    delete inputmanager;
+    inputmanager = nullptr;
+    delete cpu;
+    cpu = nullptr;
+    delete player;
+    player = nullptr;
+    delete ball;
+    ball = nullptr;
+
 
 }
 
 void Level_1_Unload()
 {
+   
 }
 
 void KeyboardInput()

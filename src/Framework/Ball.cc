@@ -1,8 +1,6 @@
 #include"Ball.hh"
 
-Ball::~Ball()
-{
-}
+
 
 Ball::Ball(int startx, int starty) : handler(this, &Ball::OnEvent)
 {
@@ -63,12 +61,7 @@ void Ball::OnEvent(CollisionEvent* coll)
 	}
 	if (coll->type == "CPUToBall")
 	{
-		if (this->x > -50)
-		{
-			this->yvel = yvel;
-			this->xvel = -xvel;
-			return;
-		}
+
 		this->yvel = -yvel;
 		this->xvel = -xvel;
 	}

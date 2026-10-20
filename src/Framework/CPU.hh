@@ -21,7 +21,7 @@ class CPU : public Entity
 
 	EventHandler<CPU, CollisionEvent> coll_handler;
 	public:
-		~CPU();
+		~CPU() = default;
 		CPU(int startx, int starty, Ball* b);
 		void Draw() override;
 		void Update() override;

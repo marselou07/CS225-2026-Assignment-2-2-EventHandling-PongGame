@@ -14,11 +14,11 @@ class Ball : public Entity
 
 	int rad = 20;
 
-	int xvel = 200;
-	int yvel = 200;
+	int xvel = 210;
+	int yvel = 210;
 	EventHandler<Ball, CollisionEvent> handler;
 public:
-	~Ball();
+	~Ball() = default;
 	Ball(int startx, int starty);
 	void Draw() override;
 	void Update() override;

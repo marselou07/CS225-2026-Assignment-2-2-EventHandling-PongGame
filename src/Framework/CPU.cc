@@ -1,7 +1,5 @@
 #include "CPU.hh"
-CPU::~CPU()
-{
-}
+
 
 CPU::CPU(int startx, int starty, Ball* b):coll_handler(this, &CPU::OnHitEvent), ballseen(b)
 {
@@ -52,6 +50,10 @@ int CPU::getScaleY()
 }
 void CPU::OnHitEvent(CollisionEvent* coll)
 {
+	if (coll->type == "CPUToBall")
+	{
+		seing = false;
+	}
 	if (coll->type == "RightWall")
 	{
 		seing = false;
@@ -65,10 +67,7 @@ void CPU::OnHitEvent(CollisionEvent* coll)
 		seing = true;
 
 	}
-	if (coll->type == "CPUToBall")
-	{
-		seing = false;
-	}
+
 
 }
 

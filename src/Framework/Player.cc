@@ -1,8 +1,6 @@
 #include "Player.hh"
 #include "CPU.hh"
-Player::~Player()
-{
-}
+
 
 Player::Player(int startx, int starty): input_handler(this, &Player::OnEvent),
 coll_handler(this,&Player::OnHitEvent)

@@ -21,7 +21,7 @@ class Player : public Entity
 	EventHandler<Player, CollisionEvent> coll_handler;
 	// Add version for input
 	public:
-		~Player();
+		~Player() = default;
 		Player(int startx, int starty);
 		void Draw() override;
 		void Update() override;
