@@ -20,15 +20,19 @@ void Level_1_Load()
     player = new Player(-1 * ((int)AEGetSysWindowHeight() / 2) + 50, 0);
     cpu = new CPU(((int)AEGetSysWindowHeight() / 2) - 50, 0, ball);
     collmanager = new CollisionEventManager(ball, player, cpu);
-    collmanager->registerEventHandler(ball->getHandler());
-    collmanager->registerEventHandler(player->getHandler_coll());
-    collmanager->registerEventHandler(cpu->getHandler_coll());
     inputmanager = new InputEventManager(player);
-    inputmanager->registerEventHandler(player->getHandler());
+
 }
 
 void Level_1_Init()
 {
+
+    //Cambio las variables para poder setear la posicion de
+    //Los tres objetos 
+    collmanager->registerEventHandler(ball->getHandler());
+    collmanager->registerEventHandler(player->getHandler_coll());
+    collmanager->registerEventHandler(cpu->getHandler_coll());
+    inputmanager->registerEventHandler(player->getHandler());
     ball->Draw();
     player->Draw();
     cpu->Draw();
@@ -58,6 +62,13 @@ void Level_1_Render()
 
 void Level_1_Free()
 {
+
+
+
+}
+
+void Level_1_Unload()
+{
     delete collmanager;
     collmanager = nullptr;
     delete inputmanager;
@@ -68,13 +79,6 @@ void Level_1_Free()
     player = nullptr;
     delete ball;
     ball = nullptr;
-
-
-}
-
-void Level_1_Unload()
-{
-   
 }
 
 void KeyboardInput()
