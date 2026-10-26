@@ -16,7 +16,7 @@ class CPU : public Entity
 	int yscale = 200;
 	Ball* ballseen;
 	int xvel = 0;
-	int yvel = 130;
+	int yvel = 110;
 	bool seing = true;
 
 	EventHandler<CPU, CollisionEvent> coll_handler;

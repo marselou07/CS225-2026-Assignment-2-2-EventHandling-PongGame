@@ -11,6 +11,7 @@ class CollisionEventManager : public EventManager
 	Player* player;
 	CPU* cpu;
 	public:
+		//Constructor get all the objects which have collisions
 		CollisionEventManager(Ball* b,Player*p, CPU* c)
 			:ball(b), player(p), cpu(c)
 		{}

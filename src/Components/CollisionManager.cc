@@ -1,5 +1,22 @@
 #include "CollisionManager.hh"
+/******************************************************************************
+filename    InputManager.cc
+author      Markel Susial de la fuente
+DP email    markel.susial@digipen.edu
+course      cs225
+assignment  2.2
+due date    27/10/2026
 
+Brief Description: The program will handle each case of collision for
+all objects subscribed
+******************************************************************************/
+/**
+ * update
+ * @param context: for each objects check of the collisions
+ * that are on the update are triggered in that case
+ * send the Collision event to all objects subscribed
+ * @return nothing
+ */
 void CollisionEventManager::update()
 {
 	int halfx = (int)AEGetSysWindowWidth() / 2;
