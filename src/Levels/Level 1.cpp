@@ -26,16 +26,14 @@ void Level_1_Load()
 
 void Level_1_Init()
 {
-
-    //Cambio las variables para poder setear la posicion de
-    //Los tres objetos 
+    ball->Draw();
+    player->Draw();
+    cpu->Draw();
     collmanager->registerEventHandler(ball->getHandler());
     collmanager->registerEventHandler(player->getHandler_coll());
     collmanager->registerEventHandler(cpu->getHandler_coll());
     inputmanager->registerEventHandler(player->getHandler());
-    ball->Draw();
-    player->Draw();
-    cpu->Draw();
+
 }
 
 void Level_1_Update()
@@ -52,18 +50,32 @@ void Level_1_Update()
 
 void Level_1_Render()
 {
-    // clear frame buffer, do not delete this code
     ball->Draw();
     player->Draw();
     cpu->Draw();
+    // clear frame buffer, do not delete this code
+
     AEGfxSetClearColor(AEGfxColor(0, 0, 0));
     AEGfxClearBuffer();
 }
 
 void Level_1_Free()
 {
-
-
+    delete collmanager;
+    collmanager = nullptr;
+    delete inputmanager;
+    inputmanager = nullptr;
+    delete cpu;
+    cpu = nullptr;
+    delete player;
+    player = nullptr;
+    delete ball;
+    ball = nullptr;
+    ball = new Ball(0, 0);
+    player = new Player(-1 * ((int)AEGetSysWindowHeight() / 2) + 50, 0);
+    cpu = new CPU(((int)AEGetSysWindowHeight() / 2) - 50, 0, ball);
+    collmanager = new CollisionEventManager(ball, player, cpu);
+    inputmanager = new InputEventManager(player);
 
 }
 
@@ -79,6 +91,7 @@ void Level_1_Unload()
     player = nullptr;
     delete ball;
     ball = nullptr;
+
 }
 
 void KeyboardInput()

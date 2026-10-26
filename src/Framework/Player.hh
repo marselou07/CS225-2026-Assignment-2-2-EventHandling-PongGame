@@ -16,7 +16,7 @@ class Player : public Entity
 	int yscale = 200;
 
 	int xvel = 0;
-	int yvel = 150;
+	int yvel = 200;
 	EventHandler<Player, InputEvent> input_handler;
 	EventHandler<Player, CollisionEvent> coll_handler;
 	// Add version for input
