@@ -7,7 +7,7 @@ course      cs225
 assignment  2.2
 due date    27/10/2026
 
-Brief Description: This probram will create the logic for the ball
+Brief Description: This program will create the logic for the ball
 ******************************************************************************/
 
 /**
